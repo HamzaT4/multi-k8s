@@ -16,7 +16,6 @@ jobs:
       - name: Test
         run: |-
           echo ${{ secrets.DOCKER_USERNAME }}
-          echo ${{ DOCKER_USERNAME }}
           docker login -u ${{ secrets.DOCKER_USERNAME }} -p ${{ secrets.DOCKER_PASSWORD }}
           docker build -t rallycoding/react-test -f ./client/Dockerfile.dev ./client
           docker run -e CI=true rallycoding/react-test npm test
